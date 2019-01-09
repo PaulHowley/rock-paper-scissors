@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8">
+    <title>Project: Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <script>
+
+      function computerPlay() {
+        let randomDecimal = Math.random();
+        let randomNumToThree = randomDecimal * 3;
+        let roundedNum = Math.floor(randomNumToThree);
+
+        const weapons = ["rock", "paper", "scissors"];
+        const computerWeapon = weapons[roundedNum];
+
+        return computerWeapon;
+      }
+      
+      let playerSelection = prompt("Please input rock, paper or scissors");
+      playerSelection = playerSelection.toLowerCase();
+
+      let computerSelection = computerPlay();
+
+      function playRound(playerSelection, computerSelection) {
+        let result;
+        if (playerSelection === computerSelection) {
+            result = "Draw!";
+          }
+          else if ((playerSelection === "rock" && computerSelection === "paper") || 
+          (playerSelection === "paper" && computerSelection === "scissors") ||
+          (playerSelection === "scissors" && computerSelection === "rock")) {
+            result = "Computer Wins!";
+          }
+          else if ((playerSelection === "paper" && computerSelection === "rock") || 
+          (playerSelection === "scissors" && computerSelection === "paper") ||
+          (playerSelection === "rock" && computerSelection === "scissors")) {
+            result = "Player Wins!";
+          }
+          else {
+            result = "You must choose rock, paper or scissors";
+          }
+        return result;
+      }
+
+      console.log(playRound(playerSelection, computerSelection));
+    </script>
+  </body>
+</html>

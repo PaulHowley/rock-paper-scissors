@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Project: Rock, Paper, Scissors.</title>
@@ -8,17 +8,17 @@
     <script>
 
       function computerPlay() {
-        let randomDecimal = Math.random();
-        let randomNumToThree = randomDecimal * 3;
-        let roundedNum = Math.floor(randomNumToThree);
+        const randomDecimal = Math.random();
+        const randomNumToThree = randomDecimal * 3;
+        const roundedNum = Math.floor(randomNumToThree);
 
-        const weapons = ["rock", "paper", "scissors"];
+        const weapons = ['rock', 'paper', 'scissors'];
         const computerWeapon = weapons[roundedNum];
 
         return computerWeapon;
       }
       
-      let playerSelection = prompt("Please input rock, paper or scissors");
+      let playerSelection = prompt('Please input rock, paper or scissors');
       playerSelection = playerSelection.toLowerCase();
 
       let computerSelection = computerPlay();
@@ -26,20 +26,17 @@
       function playRound(playerSelection, computerSelection) {
         let result;
         if (playerSelection === computerSelection) {
-            result = "Draw!";
-          }
-          else if ((playerSelection === "rock" && computerSelection === "paper") || 
-          (playerSelection === "paper" && computerSelection === "scissors") ||
-          (playerSelection === "scissors" && computerSelection === "rock")) {
-            result = "Computer Wins!";
-          }
-          else if ((playerSelection === "paper" && computerSelection === "rock") || 
-          (playerSelection === "scissors" && computerSelection === "paper") ||
-          (playerSelection === "rock" && computerSelection === "scissors")) {
-            result = "Player Wins!";
-          }
-          else {
-            result = "You must choose rock, paper or scissors";
+            result = 'Draw!';
+          } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
+          (playerSelection === 'paper' && computerSelection === 'scissors') ||
+          (playerSelection === 'scissors' && computerSelection === 'rock')) {
+            result = 'Computer Wins!';
+          } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
+          (playerSelection === 'scissors' && computerSelection === 'paper') ||
+          (playerSelection === 'rock' && computerSelection === 'scissors')) {
+            result = 'Player Wins!';
+          } else {
+            result = 'You must choose rock, paper or scissors';
           }
         return result;
       }

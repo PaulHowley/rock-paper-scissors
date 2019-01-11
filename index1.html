@@ -6,59 +6,62 @@
   </head>
   <body>
     <script>
+      let result
+      let playerScore = 0
+      let computerScore = 0
 
-    function computerPlay() {
-        const randomDecimal = Math.random();
-        const randomNumToThree = randomDecimal * 3;
-        const roundedNum = Math.floor(randomNumToThree);
+      game()
 
-        const weapons = ['rock', 'paper', 'scissors'];
-        const computerWeapon = weapons[roundedNum];
+      function computerPlay() {
+        const randomDecimal = Math.random()
+        const randomNumToThree = randomDecimal * 3
+        const roundedNum = Math.floor(randomNumToThree)
 
-        return computerWeapon;
+        const weapons = ['rock', 'paper', 'scissors']
+        const computerWeapon = weapons[roundedNum]
+
+        return computerWeapon
       }
-      
-      
-
-      let result;
-      let playerScore = 0;
-      let computerScore = 0;
-      
 
       function playRound(playerSelection, computerSelection) {
-        playerSelection = prompt('Please input rock, paper or scissors');
-        playerSelection = playerSelection.toLowerCase();
+        playerSelection = prompt('Please input rock, paper or scissors')
+        playerSelection = playerSelection.toLowerCase()
 
-        computerSelection = computerPlay();
+        computerSelection = computerPlay()
         
         if (playerSelection === computerSelection) {
-            result = 'Draw! you both have ' + playerSelection + '.';
-          } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
+          result = `Draw! you both have ${playerSelection}.`
+        } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
                   (playerSelection === 'paper' && computerSelection === 'scissors') ||
                   (playerSelection === 'scissors' && computerSelection === 'rock')) {
-            result = 'Computer Wins! ' + computerSelection + ' beats ' + playerSelection + '.';
-            computerScore++;
-          } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
+          result = `Computer Wins! ${computerSelection} beats ${playerSelection}.`
+          computerScore++
+        } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
                   (playerSelection === 'scissors' && computerSelection === 'paper') ||
                   (playerSelection === 'rock' && computerSelection === 'scissors')) {
-            result = 'Player Wins! ' + playerSelection + ' beats ' + computerSelection + '.';
-            playerScore++;
-          } else {
-            result = 'You must choose rock, paper or scissors';
-          }
-        return result;
+          result = `Player Wins! ${playerSelection} beats ${computerSelection}.`
+          playerScore++
+        } else {
+          result = 'You must choose rock, paper or scissors'
+        }
+
+        return result
       }
       
-      for (let i = 0; i < 5; i++) {
-        playRound();
-        alert(result);
+      function game () {
+        for (let i = 0; i < 5; i++) {
+          playRound()
+          alert(result)
+        }
+
+        if (computerScore > playerScore) {
+          alert(`Computer: ${computerScore}, You: ${playerScore}, Sorry you lose this time`)
+        } else if (computerScore === playerScore) {
+          alert('This time it\'s a draw!')
+        } else {
+          alert(`Computer: ${computerScore}, You: ${playerScore}, Well done, you win!`)
+        }  
       }
-      if (computerScore > playerScore) {
-            alert('Computer: ' + computerScore + ', You: ' + playerScore + ', Sorry you lose this time');
-          } else {
-              alert('Computer: ' + computerScore + ', You: ' + playerScore + ', Well done, you win!');
-            }
-            
     </script>
   </body>
 </html>

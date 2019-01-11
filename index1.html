@@ -2,46 +2,66 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Project: Rock, Paper, Scissors.</title>
+    <title>Project: Rock, Paper, Scissors</title>
   </head>
   <body>
     <script>
+      let result
+      let playerScore = 0
+      let computerScore = 0
+
+      game()
 
       function computerPlay() {
-        const randomDecimal = Math.random();
-        const randomNumToThree = randomDecimal * 3;
-        const roundedNum = Math.floor(randomNumToThree);
+        const randomDecimal = Math.random()
+        const randomNumToThree = randomDecimal * 3
+        const roundedNum = Math.floor(randomNumToThree)
 
-        const weapons = ['rock', 'paper', 'scissors'];
-        const computerWeapon = weapons[roundedNum];
+        const weapons = ['rock', 'paper', 'scissors']
+        const computerWeapon = weapons[roundedNum]
 
-        return computerWeapon;
+        return computerWeapon
       }
-      
-      let playerSelection = prompt('Please input rock, paper or scissors');
-      playerSelection = playerSelection.toLowerCase();
-
-      let computerSelection = computerPlay();
 
       function playRound(playerSelection, computerSelection) {
-        let result;
-        if (playerSelection === computerSelection) {
-            result = 'Draw!';
-          } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
-          (playerSelection === 'paper' && computerSelection === 'scissors') ||
-          (playerSelection === 'scissors' && computerSelection === 'rock')) {
-            result = 'Computer Wins!';
-          } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
-          (playerSelection === 'scissors' && computerSelection === 'paper') ||
-          (playerSelection === 'rock' && computerSelection === 'scissors')) {
-            result = 'Player Wins!';
-          } else {
-            result = 'You must choose rock, paper or scissors';
-          }
-        return result;
-      }
+        playerSelection = prompt('Please input rock, paper or scissors')
+        playerSelection = playerSelection.toLowerCase()
 
-      console.log(playRound(playerSelection, computerSelection));
+        computerSelection = computerPlay()
+        
+        if (playerSelection === computerSelection) {
+          result = `Draw! you both have ${playerSelection}.`
+        } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
+                  (playerSelection === 'paper' && computerSelection === 'scissors') ||
+                  (playerSelection === 'scissors' && computerSelection === 'rock')) {
+          result = `Computer Wins! ${computerSelection} beats ${playerSelection}.`
+          computerScore++
+        } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
+                  (playerSelection === 'scissors' && computerSelection === 'paper') ||
+                  (playerSelection === 'rock' && computerSelection === 'scissors')) {
+          result = `Player Wins! ${playerSelection} beats ${computerSelection}.`
+          playerScore++
+        } else {
+          result = 'You must choose rock, paper or scissors'
+        }
+
+        return result
+      }
+      
+      function game () {
+        for (let i = 0; i < 5; i++) {
+          playRound()
+          alert(result)
+        }
+
+        if (computerScore > playerScore) {
+          alert(`Computer: ${computerScore}, You: ${playerScore}, Sorry you lose this time`)
+        } else if (computerScore === playerScore) {
+          alert('This time it\'s a draw!')
+        } else {
+          alert(`Computer: ${computerScore}, You: ${playerScore}, Well done, you win!`)
+        }  
+      }
     </script>
   </body>
 </html>

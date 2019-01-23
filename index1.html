@@ -1,97 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Project: Rock, Paper, Scissors</title>
-
+    <title>Mobile responsive design</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="Styles/main.css">
   </head>
   <body>
-    <div class='c-div__heading'>
-      <h1 class='c-div__heading--h1'>Welcome to my Rock Paper Scissors Game</h1>
-      <h2 class='c-div__heading--h2'>Click a button to start, the first to 5 wins. Good Luck!</h2>
+    <div class='container'>
+      <div class='banner'>
+          <h1>Play the Rock Paper Scissors Game!</h1>
+      </div>
+      <div class='main'>
+        <div class="box-1">
+          <input class='rock__img' type='image' src='Images/rock.png' value='rock'></input>
+        </div>
+        <div class="box-2">
+          <input class='paper__img' type='image' src='Images/paper.png' value='paper'></input>
+        </div>
+        <div class="box-3">
+          <input class='scissors__img' type='image' src='Images/scissors.png' value='scissors'></input>
+        </div>
+        <button class="reset_button" value="reset">Click here to reset the game</button>
+      </div>
+      <footer>
+        <p class='c-div__results--text1'>Click your selection to start.</p>
+        <p class='c-div__results--text2'>First to 5 wins. Good Luck!</p>
+      </footer>
     </div>
-    <div class='c-div__buttons'>
-      <button type='button' value='rock'>Rock</button>
-      <button type='button' value='paper'>Paper</button>
-      <button type='button' value='scissors'>Scissors</button>
-    </div>
-    <div class='c-div__results'>
-      
-    </div>
-
-
-
-    <script>
-
-      let result
-      let playerScore = 0
-      let computerScore = 0
-
-
-      function computerPlay() {
-        const randomDecimal = Math.random()
-        const randomNumToThree = randomDecimal * 3
-        const roundedNum = Math.floor(randomNumToThree)
-
-        const weapons = ['rock', 'paper', 'scissors']
-        const computerWeapon = weapons[roundedNum]
-
-        return computerWeapon
-      }
-      
-      const buttons = document.querySelectorAll('button')
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            // Call play round function and pass through e.target.value as the player selection argument
-            playRound(e.target.value, computerPlay())
-        })
-          
-      })
-        
-        
-
-      function playRound(playerSelection, computerSelection) {  
-        
-        if (playerSelection === computerSelection) {
-          result = `Draw! you both have ${playerSelection}.`
-        } else if ((playerSelection === 'rock' && computerSelection === 'paper') || 
-                  (playerSelection === 'paper' && computerSelection === 'scissors') ||
-                  (playerSelection === 'scissors' && computerSelection === 'rock')) {
-          result = `Computer Wins! ${computerSelection} beats ${playerSelection}.`
-          computerScore++
-        } else if ((playerSelection === 'paper' && computerSelection === 'rock') || 
-                  (playerSelection === 'scissors' && computerSelection === 'paper') ||
-                  (playerSelection === 'rock' && computerSelection === 'scissors')) {
-          result = `Player Wins! ${playerSelection} beats ${computerSelection}.`
-          playerScore++
-        } else {
-          result = 'You must choose rock, paper or scissors'
-        }
-
-      const resultsContainer = document.querySelector('.c-div__results')
-      let scorePara = document.createElement('p')
-      scorePara.textContent = `${result} Current Scores: Player = ${playerScore}, Computer = ${computerScore}`
-      resultsContainer.appendChild(scorePara)
-
-      if (playerScore === 5 || computerScore === 5) {
-        if (playerScore > computerScore) {
-          scorePara.textContent = `${result} Final Scores: Player = ${playerScore}, Computer = ${computerScore}. Game over you are the first to 5. Congratulations!`
-        } else {
-          scorePara.textContent = `${result} Final Scores: Player = ${playerScore}, Computer = ${computerScore}. Game over the Computer is the first to 5. Commiserations!`
-        }
-        playerScore = 0
-        computerScore = 0
-      }
-
-      }
-      
-      
-
-      
-      
-    </script>
+    <script src="Scripts/script.js"></script>
   </body>
 </html>

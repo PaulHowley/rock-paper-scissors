@@ -35,6 +35,11 @@ h1 {
   display: flex;
 }
 
+.c-main__boxHolder {
+  text-align: center;
+  display: flex;
+}
+
 input {
   width: 60%;
   height: auto;
@@ -86,6 +91,10 @@ p {
 
 @media (max-width: 576px) {
   .c-container__main {
+    flex-direction: column;
+  }
+
+  .c-main__boxHolder {
     flex-direction: column;
   }
 

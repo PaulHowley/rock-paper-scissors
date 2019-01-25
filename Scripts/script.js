@@ -13,7 +13,7 @@ function computerPlay() {
   return computerWeapon
 }
       
-const buttons = document.querySelectorAll('input')
+const buttons = document.querySelectorAll("input[data-behavior='playerSelection']")
 
   buttons.forEach((input) => {
     input.addEventListener('click', (e) => {
@@ -53,22 +53,24 @@ function playRound(playerSelection, computerSelection) {
         resultsText.textContent = `${result}`
         currentScores.textContent = `Final Scores: Player = ${playerScore}, Computer = ${computerScore}. Game over the Computer is the first to 5. Commiserations!`
       }
+      const imagesHidden = document.querySelector('.c-main__boxHolder')
+            imagesHidden.style.display = 'none'
 
-    const rockHidden = document.querySelector('.c-box-1__rock-img')
-          rockHidden.style.display = 'none'
-    const paperHidden = document.querySelector('.c-box-2__paper-img')
-          paperHidden.style.display = 'none'
-    const scissorsHidden = document.querySelector('.c-box-3__scissors_img')
-          scissorsHidden.style.display = 'none'
+   // const rockHidden = document.querySelector('.c-box-1__rock-img')
+    //      rockHidden.style.display = 'none'
+  //  const paperHidden = document.querySelector('.c-box-2__paper-img')
+    //      paperHidden.style.display = 'none'
+  //  const scissorsHidden = document.querySelector('.c-box-3__scissors_img')
+    //      scissorsHidden.style.display = 'none'
 
-    document.querySelector('.c-main__reset-button').style.display = "block"
+    document.querySelector("button[data-behavior='resetGame']").style.display = "block"
         
     playerScore = 0
     computerScore = 0
   }
 }
         
-const gameReset = document.querySelector('.c-main__reset-button')
+const gameReset = document.querySelector("button[data-behavior='resetGame']")
       gameReset.addEventListener('click', () => {
         location.reload()
       })

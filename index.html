@@ -4,7 +4,7 @@
     <title>Mobile responsive design</title>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel="stylesheet" href="Styles/main.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
     <div class='c-container'>
@@ -12,22 +12,24 @@
           <h1>Play the Rock Paper Scissors Game!</h1>
       </div>
       <div class='c-container__main'>
-        <div class="c-main__box-1">
-          <input class='c-box-1__rock-img' type='image' src='Images/rock.png' value='rock'></input>
+        <div class='c-main__boxHolder'>
+          <div class="c-main__box-1">
+            <input data-behavior='playerSelection' class='c-box-1__rock-img' type='image' src='images/rock.png' value='rock'></input>
+          </div>
+          <div class="c-main__box-2">
+            <input data-behavior='playerSelection' class='c-box-2__paper-img' type='image' src='images/paper.png' value='paper'></input>
+          </div>
+          <div class="c-main__box-3">
+            <input data-behavior='playerSelection' class='c-box-3__scissors_img' type='image' src='images/scissors.png' value='scissors'></input>
+          </div>
         </div>
-        <div class="c-main__box-2">
-          <input class='c-box-2__paper-img' type='image' src='Images/paper.png' value='paper'></input>
-        </div>
-        <div class="c-main__box-3">
-          <input class='c-box-3__scissors_img' type='image' src='Images/scissors.png' value='scissors'></input>
-        </div>
-        <button class="c-main__reset-button" value="reset">Click here to reset the game</button>
+        <button data-behavior='resetGame' class="c-main__reset-button" value="reset">Click here to reset the game</button>
       </div>
       <footer>
         <p class='c-div__results--text1'>Click your selection to start.</p>
         <p class='c-div__results--text2'>First to 5 wins. Good Luck!</p>
       </footer>
     </div>
-    <script src="Scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

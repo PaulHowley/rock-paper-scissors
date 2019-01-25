@@ -39,10 +39,10 @@ function playRound(playerSelection, computerSelection) {
           result = 'You must choose rock, paper or scissors'
         }
 
-  const resultsText = document.querySelector('.c-div__results--text1')
+  const resultsText = document.querySelector("p[data-behaviour='resultsText1']")
         resultsText.textContent = `${result} `
 
-  const currentScores = document.querySelector('.c-div__results--text2')
+  const currentScores = document.querySelector("p[data-behaviour='resultsText2']")
         currentScores.textContent = `Current Scores: Player = ${playerScore}, Computer = ${computerScore}`
 
   if (playerScore === 5 || computerScore === 5) {
@@ -53,15 +53,8 @@ function playRound(playerSelection, computerSelection) {
         resultsText.textContent = `${result}`
         currentScores.textContent = `Final Scores: Player = ${playerScore}, Computer = ${computerScore}. Game over the Computer is the first to 5. Commiserations!`
       }
-      const imagesHidden = document.querySelector('.c-main__boxHolder')
-            imagesHidden.style.display = 'none'
-
-   // const rockHidden = document.querySelector('.c-box-1__rock-img')
-    //      rockHidden.style.display = 'none'
-  //  const paperHidden = document.querySelector('.c-box-2__paper-img')
-    //      paperHidden.style.display = 'none'
-  //  const scissorsHidden = document.querySelector('.c-box-3__scissors_img')
-    //      scissorsHidden.style.display = 'none'
+      const imagesHidden = document.querySelector("div[data-behaviour='boxHolder']")
+            imagesHidden.style.display = 'none'   
 
     document.querySelector("button[data-behavior='resetGame']").style.display = "block"
         

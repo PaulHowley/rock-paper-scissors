@@ -39,10 +39,10 @@ function playRound(playerSelection, computerSelection) {
           result = 'You must choose rock, paper or scissors'
         }
 
-  const resultsText = document.querySelector("p[data-behaviour='resultsText1']")
+  const resultsText = document.querySelector("p[data-behavior='resultsText1']")
         resultsText.textContent = `${result} `
 
-  const currentScores = document.querySelector("p[data-behaviour='resultsText2']")
+  const currentScores = document.querySelector("p[data-behavior='resultsText2']")
         currentScores.textContent = `Current Scores: Player = ${playerScore}, Computer = ${computerScore}`
 
   if (playerScore === 5 || computerScore === 5) {
@@ -53,7 +53,7 @@ function playRound(playerSelection, computerSelection) {
         resultsText.textContent = `${result}`
         currentScores.textContent = `Final Scores: Player = ${playerScore}, Computer = ${computerScore}. Game over the Computer is the first to 5. Commiserations!`
       }
-      const imagesHidden = document.querySelector("div[data-behaviour='boxHolder']")
+      const imagesHidden = document.querySelector("div[data-behavior='boxHolder']")
             imagesHidden.style.display = 'none'   
 
     document.querySelector("button[data-behavior='resetGame']").style.display = "block"
